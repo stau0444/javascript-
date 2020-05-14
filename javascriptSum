@@ -1,0 +1,15 @@
+오브젝트
+<script>
+        //임시 저장 버튼
+        var v={};
+        function save(){
+            v.name=document.querySelector("#name").value;
+            v.addr=document.querySelector("#addr").value;
+        }
+        function show(){
+            document.querySelector("#console").innerText=v.name+v.addr;
+        }
+
+       페이지가 로딩되면 var v, function save,function show가 만들어지고 
+       save가 눌리면 오브젝트 v에 name과 addr이 들어간다.
+       

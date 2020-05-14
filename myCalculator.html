@@ -25,11 +25,10 @@
     var answer=document.querySelector("#result")  //결과부분
     var oper=document.querySelector("#calculator");//연산자 선택부분
     
+    //연산
     function plus(){
-        
         var userNum1=userNum[0].value
         var userNum2=userNum[1].value
-        
         if( oper.selectedIndex == 0){
             answer.innerText=parseInt(userNum1)+parseInt(userNum2);
         }else if( oper.selectedIndex == 1){
@@ -39,7 +38,6 @@
         }else if( oper.selectedIndex == 3){
             answer.innerText=parseInt(userNum1)/parseInt(userNum2);
         }
- 
     }
 
     function reset(){

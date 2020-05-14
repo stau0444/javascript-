@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_exaple.html</title>
+</head>
+<body>
+    <h1>plain object</h1>
+    <input type="text" id="name" placeholder="이름 입력"/>
+    <input type="text" id="addr" placeholder="주소 입력"/>
+    <button onclick="save()">임시 저장</button>
+    <button onclick="show()">저장된 정보 보기</button>
+    <p id="console"></p>
+    <script>
+        //임시 저장 버튼
+        var v={};
+        function save(){
+            v.name=document.querySelector("#name").value;
+            v.addr=document.querySelector("#addr").value;
+        }
+        function show(){
+            document.querySelector("#console").innerText='이름은'+v.name+'주소는'+v.addr;
+        }
+       
+
+  
+    </script>
+</body>
+</html>
