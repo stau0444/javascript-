@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+         <h1>산술연산 예제</h1>
+         <input type="text"  id="num1" placeholder="숫자입력">
+         <label for="calculation"></label>
+         <select  id="calculator">
+             <option value=0 >+</option>
+             <option value=1 >-</option>
+             <option value=2 >*</option>
+             <option value=3 >/</option>
+         </select>
+         <input type="text"  id="num2" placeholder="숫자입력">
+         <button onclick="plus()">=</button>
+         <strong id="result">0</strong>
+         <br>
+         <button onclick="reset()">reset</button>
+<script>
+    var userNum=document.querySelectorAll("input")//사용자 입력 부분
+    var answer=document.querySelector("#result")  //결과부분
+    var oper=document.querySelector("#calculator");//연산자 선택부분
+    
+    function plus(){
+        
+        var userNum1=userNum[0].value
+        var userNum2=userNum[1].value
+        
+        if( oper.selectedIndex == 0){
+            answer.innerText=parseInt(userNum1)+parseInt(userNum2);
+        }else if( oper.selectedIndex == 1){
+            answer.innerText=parseInt(userNum1)-parseInt(userNum2);
+        }else if( oper.selectedIndex == 2){
+            answer.innerText=parseInt(userNum1)*parseInt(userNum2);
+        }else if( oper.selectedIndex == 3){
+            answer.innerText=parseInt(userNum1)/parseInt(userNum2);
+        }
+ 
+    }
+
+    function reset(){
+        userNum[0].value="";
+        userNum[1].value="";
+        answer.innerText=0;
+        oper.selectedIndex= 0;
+    }
+</script>
+</body>
+</html>
