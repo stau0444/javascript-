@@ -8,11 +8,37 @@
 <body>
     <h1>array 테스트 중</h1>
     <input type="text" id="msg" placeholder="할일입력.."/>
-    <button id="save()">저장하기</button>
-    <button id="show()">저장된 할일 보기</button>
+    <button onclick="save()">저장하기</button>
+    <button onclick="show()">저장된 할일 보기</button>
     <p id="console"></p>
-    <script>
 
+    <script>
+       
+            
+            var msgs=[];
+            //저장 버튼을 누르면 값이 저장되게 하는함수
+            function save(){
+            //    1.입력한 문자열을 읽어온다
+                var line=document.querySelector("#msg").value;   
+            //    2,입력한것을 저장한다.
+                msgs.push(line);
+                alert('저장 되었습니다');
+             //    3. 입력창에 저장된 내용이 지워진다.   
+                 document.querySelector("#msg").value="";   
+            }
+            
+            //저장된 값을 보이게 하는 함수
+            
+            function show(){
+                var todo=""
+                for(i=0; i<msgs.length; i++){
+                    var line=msgs[i]
+                    todo=todo+line
+                }
+                document.querySelector("#console").innerText=todo;
+            }
     </script>    
 </body>
 </html>
+
+<!-- /반복문의 값이 ol의 li에 하나씩 들어가는 코드 -->
