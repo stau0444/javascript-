@@ -12,4 +12,14 @@
 
        페이지가 로딩되면 var v, function save,function show가 만들어지고 
        save가 눌리면 오브젝트 v에 name과 addr이 들어간다.
+
+       참조하는 값은 불러오거나 수정할때 사용
+
+       names[0]='김구랑';  값을 불러와 수정함
+        "김구랑"
+        +
+
+
+
+
        

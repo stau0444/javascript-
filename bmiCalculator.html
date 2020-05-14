@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <h1>BMI(체질량) 계산기</h1>
+    <input type="text" id="height" placeholder="키입력">
+    <input type="text" id="weight"" placeholder="몸무게입력">
+    <button onclick="bmiCalculator()">신체조건</button>
+
+    <script>
+    // object 사용   
+        var user={};
+       
+        function bmiCalculator(){
+                user.height=document.querySelector("#height").value,
+                user.weight=document.querySelector("#weight").value
+                var bmi=Math.floor((user.weight /(user.height*user.height))*10000);
+                
+                if (bmi<18){
+                    alert('bmi는'+'='+bmi+'    저체중 입니다');
+                }else if(bmi>18 || bmi<23){
+                    alert('bmi는'+'='+bmi+'    정상 입니다');
+                }else if(bmi>23 || bmi<25){
+                    alert('bmi는'+'='+bmi+'    과체중 입니다');
+                }else if(bmi>25 || bmi<30){
+                    alert('bmi는'+'='+bmi+'    비만 입니다');
+                }else if(bmi>30){
+                    alert('bmi는'+'='+bmi+'    고도미반 입니다');
+            }
+        }
+
+    </script>
+
+</body>
+</html>
