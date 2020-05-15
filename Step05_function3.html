@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_function3.html</title>
+</head>
+<body>
+    <h1>function type 테스트</h1>
+    <button onclick="test()">test 함수 호출하기</button>
+    <script>
+        var f1= function(){
+             console.log("f1() 호출됨");
+        };
+        var f2= function(){
+             console.log("f2() 호출됨");
+             return 999;
+        };
+        var f3= function(){
+             console.log("f3() 호출됨");
+             var msg="안녕";
+             return msg;
+        };
+        var test=function(){
+            var a=f1();
+            var b=f2();
+            var c=f3();
+            return alert(b+c);
+        };
+        //위 함수는 f1,f2,f3 함수를 불러오며 각각 a,b,c라는 변수에 리턴값을 담는다
+        //b의 리턴값은 999 c의 리턴값은 '안녕' b+c는 999안녕
+
+        // 함수 호출 목적
+        //1.어떤함수는 동작을 만들기 위해 사용되고 
+        //2.어떤함수는  리턴값을 가져오기 위해 사용된다   
+
+    //     document.querySelector("#one").value
+    //     -object T
+    //     -----------------function T
+    //     -----------------------------ObjectT
+    //      var document={querySelector:function(){},................}
+    //      다큐먼트라는 오브젝트에, 쿼리셀렉터라는 방에는 function이 담겨있다. 
+    //      1아이디가 one인것을 찾는다(실행), 2그것의 참조값을 리턴한다(리턴)
+    //      두가지 동작을 한다.
+    </script>
+</body>
+</html>

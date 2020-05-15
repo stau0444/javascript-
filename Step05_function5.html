@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>function type 테스트중..</h1>
+    <button onclick="test()">테스트</button>
+    <script>
+            //함수의 인자로 두수를 전달 받아서 합을 출력하는 함수
+             var showSum=function(num1,num2){       
+                 //함수를 호출하는시점에 num1,num2가 만들어지고 함수안에서 사용되고 끝난다 
+                 var sum=num1+num2;
+                 console.log("두수의 합은:"+sum);
+             };
+             showSum(10,20);
+            //  함수를 호출 할 때 num1에 10이들어가고 num2에 20이 들어간다
+            //  함수의 인자로 두수를 전달 받아서 두수의 합을 리턴하는 함수
+             var getSum=function(num1,num2){
+                 var sum=num1+num2;
+                 return sum;
+               };
+            //전달 받은 값으로 함수를 실행한후 그 값을 리턴하는 함수
+               
+               var num1=10;
+               var num2=20;
+               var plusMinus =function(num1,num2){
+                   var p= num1+num2
+                   console.log(p)
+               } 
+            //    집어 넣을 값을 변수에 담아서 변수명으로 함수에 전달한다       
+
+               function test(){
+                   showSum(10,20);
+                   var result=getSum(20,30);
+               }
+        </script>
+</body>
+</html>
+

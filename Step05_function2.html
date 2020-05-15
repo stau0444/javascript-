@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>function type 테스트중...</h1>
+    <script>
+            
+            keepBeer();//<-실행된다 1번함수는 가장 우선적으로 만들어 지기때문
+            keepBeer2();//<-실행되지않는다  2번함수는 만들어지지않았기떄문
+
+            //1.아래 형식의 함수가 우선적으로 만들어진다
+             function keepbeer(){  
+                console.log("냉장고 문을 연다");
+                console.log("맥주를 넣는다");  
+                console.log("냉장고 문을 닫는다");
+                return console.log(6);
+            }
+            //아래 형식의 함수는 순서에따라 만들어진다. 추천 방법
+            // keepBeer2에는 function type 참조값이 들어있다
+            
+            var keepBeer2=function(){
+                console.log("냉장고 문을 연다");
+                console.log("맥주를 넣는다");  
+                console.log("냉장고 문을 닫는다");
+                return console.log(6);
+            }
+            keepBeer2();//함수를 호출한다
+            var a=keepBeer2;  //함수를 참조한다. 
+            a()===keepBeer2();
+    </script>   
+</body>
+</html>
