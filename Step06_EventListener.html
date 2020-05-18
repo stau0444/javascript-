@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_EventListener.thml</title>
+<style>
+     .box{
+        width:100px;
+        height:100px;
+        background-color: yellow;
+        border: 1px solid tomato;
+      }
+    
+</style>
+</head>
+
+<body>
+    <h1>EventListener함수 테스트중</h1>
+    <div class="box" 
+           onclick="clicked()" 
+           onmouseover="mouseovered()">div1</div>
+    <div class="box" id="one">div2</div>
+    <script>
+        function clicked(){
+            console.log("클릭!")
+        };
+        function mouseovered(){
+            console.log("마우스오버!")
+        };
+        //id가 one인 요소에 click 이벤트가 일어 났을때 호출되는 함수
+        document.querySelector("#one")
+        .addEventListener("click",function(){
+            console.log('클릭?');
+        });
+        //id가 one인 요소에 mouseover 이벤트가 일어 났을대 호출되는 함수
+        document.querySelector("#one")
+        .addEventListener("mouseover",function(){
+            document.querySelector("#one").innerText="hi";
+        });
+        document.querySelector("#one")
+        .addEventListener("mouseout",function(){
+            document.querySelector("#one").innerText="bye";
+        });
+        // --오브젝트
+        // ------------------------펑션
+        // ------------------------------오브젝트
+        // ------------------------------------------------------------------------펑션
+        // 도큐먼트 오브젝트에 쿼리셀렉터를사용하여 아이디가one인 태그를 가져오고
+        // 그 테그에 addEventListener라는 펑션을 이용하여 click되면 ,function이 작동되게한다.
+    </script>
+</body>
+</html>

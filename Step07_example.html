@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example.html</title>
+</head>
+<body>
+        <h1>논리 연산자 테스트</h1>
+        <input type="text"  id="height" placeholder="키를 입력하세요"/>
+        <input type="text"  id="weight" placeholder="몸무게를 입력하세요"/>
+        <button id="checkBtn">놀이 기구 탑승가능 여부</button>
+        <p id="console"></p>
+        <script>
+            /*
+                키가 너무 작거나 몸무게가 너무 크면 탈수 없는 놀이 기구
+                키는 150이상 , 몸무게는 100미만
+                키와 몸무게를 입력하고 확인하기 버튼을 누르면 
+                해당 놀이 기구를 탈 수 있는지 없는지 메시지를 p요소에 출력
+            */
+              
+            document.querySelector("#checkBtn").addEventListener('keydown',function(event){
+                
+                var b={};
+                b.h=document.querySelector("#height").value;      //입력한 키를 가져온다
+                b.w=document.querySelector("#weight").value;     //입력한 몸무게를 가져온다.
+                if(Number(b.h)>=150&&Number(b.w)<100&&event.key=="Enter"){               //입력한 키와 몸무게에 따라 조건에 맞으면 p요소에 출력한다.
+                    document.querySelector("#console").innerText="키는  "+b.h+"  몸무게는"+b.w+"탑승  가능합니다";
+                }else{
+                    document.querySelector("#console").innerText="탑승  불가";
+                }
+            });
+
+        </script>
+</body>
+</html>

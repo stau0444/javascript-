@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_EventListener3.html</title>
+<style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: turquoise;
+            border-bottom: 6px  ridge tomato;
+            border-left: 6px  ridge tomato;
+            margin-bottom:  5px;
+        }
+</style>
+</head>
+<body>
+    <h1>EventListener 함수 테스트중</h1>
+    <div class="box">div1</div>
+    <div class="box">div2</div>
+    <div class="box">div3</div>
+    <div class="box">div4</div>
+    <div class="box">div5</div>
+    <script>
+        var divs=document.querySelectorAll(".box");
+            for(i=0; i<divs.length; i++){
+            divs[i].addEventListener('click',function(){
+                this.innerText='clicked';
+                this.style.background="pink";
+                });
+            };
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_EventListener2.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: turquoise;
+            border-left: 6px  ridge tomato;
+            border-top: 6px  ridge tomato;
+            margin-bottom:  20px;
+        }
+    </style>
+</head>
+
+<body>
+        <h1> EventListener 함수 테스트중</h1>
+        <div id="one" class="box">div1</div>
+        <div id="two" class="box">div2</div>
+        <script>
+            //id가 one인 div를 click 하면 해당 div의 innerText가 
+            //clicked!로 바뀌도록
+
+            document.querySelector('#one').addEventListener('click',function(){
+                this.innerText='click';
+            });
+            document.querySelector('#one').addEventListener('mouseout',function(){
+                this.innerText='div';
+            });
+            // 지금시점에서 this는 이벤트가 일어난 객체의 참조값을 지칭한다 <div> 
+            document.querySelector('#two').addEventListener('click',function(){
+                this.innerText='click';
+            });
+
+        </script>
+</body>
+</html>
