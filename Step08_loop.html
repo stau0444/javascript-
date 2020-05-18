@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_loop.html</title>
+</head>
+<body>
+    <h1>반복문 for 테스트</h1>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <div>div6</div>
+    <button id="dc">바뀌어라 </button>
+    <script>
+            clicked=1;
+            document.querySelector("#dc").addEventListener('click',function(){
+            var names=['김구라','해골','원숭이','주뎅이','덩어리','바보','누구야'];
+            for(i=0; i<clicked; i++)
+            document.querySelectorAll("div")[i].innerText=names[i];
+            clicked++
+        });
+    </script>
+</body>
+</html>
+document.querySelector("#bc").addEventListener('click',function(){
+    names.forEach(function(a){document.write(a+"<br/>")});
+})
