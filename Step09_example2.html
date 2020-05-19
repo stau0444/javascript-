@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_example2.html</title>
+    <style>
+        canvas{
+            border: 4px solid salmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>그림판 만들기</h1>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+    <div>
+        <input type="color" id="selectedColor"/>
+        <input type="range" id="selectedWidth" min="1" max="20" step="1" value="5" />
+        <strong id="val">1</strong>
+        <span></span>
+        <button id="removeAll"">모두 지우기</button>
+    </div>
+    
+    <script>
+            // line,circle,rect ,text ,image 캔버스에 입력가능
+            var canvas=document.querySelector("#myCanvas");
+            // canvas에 그림을 그릴수 있는 도구의 참조값 얻어오기
+            var context= canvas.getContext("2d");
+            // 그리기전 상태값
+            var isDraw=false;
+           //선의 색과 굵기 초기값
+            var thisColor="#000000";
+            var thisWidth=1;
+            
+            context.lineCap="round"
+            context.lineJoin="round";
+
+            //시작 지정
+
+            
+            document.querySelector('#myCanvas')
+            .addEventListener('mousedown',function(event){
+                var x = event.offsetX;
+                var y = event.offsetY;
+                console.log(event);
+                context.beginPath(event);
+                context.strokeStyle=thisColor; //선의 색상
+                context.lineWidth=thisWidth; //선의 굵기
+                context.moveTo(x,y);//시작점지정
+                isDraw=true;//그린다의 상태 값 
+                
+                
+            });
+            // 그냥움직이는것인지 그리는것인지 구분필요 상태값관리
+            //마우스 움직임중
+            document.querySelector('#myCanvas')
+            .addEventListener('mousemove',function(event){
+                var x = event.offsetX;
+                var y = event.offsetY;
+                if(!isDraw){
+                    return;
+                }else{
+                    context.lineTo(x,y);
+                    context.stroke();//선그리기
+                }
+            //  누르지않은상태에서는 false가 된고
+            // 마우스의 누른 상태는 isDraw는 true가 되어 context.lineTo(x,y와  context.stroke()가 실행된다
+            });
+        
+            
+            // 마우스 땜
+            document.querySelector('#myCanvas')
+            .addEventListener('mouseup',function(event){
+                var x = event.offsetX;
+                var y = event.offsetY;
+                context.closePath();//경로마무리
+                isDraw=false; //마우스를 올렸을때 isDraw는 false가되고 closePath가실행된다
+            });
+            document.querySelector('#selectedColor').addEventListener('change',function(){
+               thisColor=this.value;
+            });
+            document.querySelector('#selectedWidth').addEventListener('change',function(){
+               thisWidth=this.value;
+            });
+            document.querySelector('#selectedWidth').addEventListener('change',function(){
+               document.querySelector('#val').innerText=this.value;
+            }) ;
+            document.querySelector('#removeAll').addEventListener('click',function(){
+                // clearRect 메소드를 사용해서 삭제 (x,y,x2,y2) x,,y좌표를 지정하고 x2,y2까지 지운다.
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }) ;
+    </script>
+</body>
+</html>
