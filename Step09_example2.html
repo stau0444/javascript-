@@ -30,21 +30,51 @@
             // 그리기전 상태값
             var isDraw=false;
            //선의 색과 굵기 초기값
-            var thisColor="#000000";
-            var thisWidth=1;
-            
+            var thisColor="#000000";// 초기값으로 정해지고 아래 이벤트리스너가 작동하면 바뀐다.
+            var thisWidth=1;// 초기값으로 정해지고 아래 이벤트리스너가 작동하면 바뀐다.
             context.lineCap="round"
             context.lineJoin="round";
 
-            //시작 지정
-
-            
+            // 순서도 
+            // 1. context에 canvas를 참조시키는 함수를만든다
+            // 2. 상태값을 정해준다 false일 경우 그려지지않고 true일 경우 그려진다.
+            // 3. canvas를 조작할 이벤트리스너를 세개만든다 (시작,움직이는중,끝)
+            // 4. 시작되는 곳은 마우스다운 이벤트를 사용하고 파라미터에 이벤트 변수를 선언하고 마우스의 x좌표 y좌표를 변수에 담는다.  
+            // 5. context.beginPath()함수로 그리기 시작을 하고
+            // 6. context.moveTo(x,y);함수로 시작점을 정한다 x,y좌표가 시작되는곳의 좌표가 된다.
+            // 7. 눌린상태이기 때문에 상태값을 true로 바꿔준다.
+            // 8.  움직이는 좌표를 변수에 저장한다 .
+            // 9.움직 이는것은 누르고 움직이는 경우 누르지 않고 움직이는 경우 두가지이고
+            // 10.눌렀을때만 그림이나와야하기때문에 눌렀을때는 isDraw함수가 ture가 되게하고
+            // 누르지 않았을 때는 false가 나오게 조건을 작성해준다.
+            // 11.mouseup을 사용해 마우스를 땠을 때 그리는걸 멈출 이벤트리스너를 만들어준다.
+            // 12.멈추는 좌표를 담을 변수를 만들고
+            // 13.context.closePath(); 함수를 사용하여 그리는걸 멈춰준다
+            // 14.isDraw를 false로 바꾼다.(mousemove를 끝내주기위해)
+            // -input color 추가-
+                // 1. input color 태그를 만들고 아이디를 부여한다.
+                // 2.인풋 초기값을 지정하고 변수에 담는다. 
+                // 3. input에 이벤트리스너를 만들고 change 이벤트를 사용하여 
+                // 인풋의 벨류가 바뀔때 작동하게 만들고 바뀐벨류 값을 초기값에 대입한다 (thisColor=this.value)
+                // 4.초기값을 그림이 시작할때에 작동될 이벤트 context.strokeStyle에 대입해준다.
+            // -input range 추가-
+                // 1. input color 태그를 만들고 아이디를 부여한다.
+                // 2.인풋 초기값을 지정하고 변수에 담는다. 
+                // 3. input에 이벤트리스너를 만들고 change 이벤트를 사용하여 
+                // 인풋의 벨류가 바뀔때 작동하게 만들고 바뀐벨류 값을 초기값에 대입한다 (thisColor=this.value)
+                // 4.초기값을 그림이 시작할때에 작동될 이벤트 context.lineWidth에 대입해준다.
+            // -eraseAll 추가-
+                // 1.button을 추가하고 아이디를부여한다
+                // 2.버튼에 이벤트리스너를 달고 
+                // 3.context.clearRect(0, 0, canvas.width, canvas.height)함수를 사용하여 내용을지운다
+                //                         괄호해석(시작x값,시작y값,지워질x값,지워질 y값)
+                //    
+            //시작 시점 지정
             document.querySelector('#myCanvas')
             .addEventListener('mousedown',function(event){
                 var x = event.offsetX;
                 var y = event.offsetY;
-                console.log(event);
-                context.beginPath(event);
+                context.beginPath();
                 context.strokeStyle=thisColor; //선의 색상
                 context.lineWidth=thisWidth; //선의 굵기
                 context.moveTo(x,y);//시작점지정
@@ -76,6 +106,7 @@
                 var y = event.offsetY;
                 context.closePath();//경로마무리
                 isDraw=false; //마우스를 올렸을때 isDraw는 false가되고 closePath가실행된다
+                // 상태값을 안바꿔주면 mousemove가 계속실행된다
             });
             document.querySelector('#selectedColor').addEventListener('change',function(){
                thisColor=this.value;
