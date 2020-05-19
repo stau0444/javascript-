@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extends</title>
+</head>
+<body>
+    <script>
+        function Vehicle(name,speed){
+            this.name=name;
+            this.speed=speed;
+        }
+        Vehicle.prototype.drive=function(){
+            console.log(this.name+"의 속도는"+this.speed+"입니다.");
+        }
+        var tico=new Vehicle('tico',50);
+       function Sedan(name,speed,maxSpeed){
+           Vehicle.apply(this.arguments) 
+           this.maxSpeed=maxSpeed;
+       }
+       Sedan.prototype=Object.create(Vehicle.prototype);
+       Sedan.prototype.constructor=Sedan;
+       Sedan.prototype.boost=function(){
+           console.log(this.name+"부스터 속도는"+this.maxSpeed)
+       };
+       var sonata= new Sedan('sonata',100,200);
+       sonata.drive();
+       sonata.boost();
+
+    </script>
+    
+</body>
+</html>
+
+<!-- 원형타입(prototype)이있고  새로운 생성자(sedan ,truck)를 만들때 원형타입(vehicle)의 
+    메소드와 아규먼트를 상속받고  새로운 생성자에서 sedan의boost truck의 capacity 를 만들어서 변형시킨다 ?
+세단의 외제차 한국차 생성자를 만들고 price 를 argument로 추가한 후 vehicle을 상속받았을때와 sedan을 상속받았을 때의 차이점알아보기  -->
