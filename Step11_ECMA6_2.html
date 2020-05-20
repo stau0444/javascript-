@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ECMAScript6 테스트 중</h1>
+    <script>
+        // 클래스 정의하기
+        class Car {
+            // 속성(저장소) 정의하기
+            brand="벤츠";
+            color="white"
+            // 기능 정의하기
+            drive(){
+                console.log(this.brand+'가 달려요')
+            }
+        }
+        // Car 클래스로 객체를 생성해서 참조값을 car1이라는 변수에 담기
+        let car1 = new Car();
+          // Car 클래스로 객체를 생성해서 참조값을 car2이라는 변수에 담기
+        let car2 = new Car();
+
+        // 클래스사용
+        // 1. 똑같은 모형의 오브젝트를 여러개 만들어야 할 때
+        // 2. 어떤 기능을 다른 프로젝트에서 사용하고 싶을때
+        
+        let car3={
+            brand:"벤츠",
+            color:"red",
+            drive:function(){
+                console.log(this.brand+"가 달려요");
+            }
+        }
+        
+        
+    
+    </script>
+</body>
+</html>

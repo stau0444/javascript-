@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class Korea{
+            constructor(city){
+                this.city=city; 
+            }
+            set areanum(num){
+                this.num=num;
+            }
+            get areanum(){
+               let str="지역번호는"+this.num+"입니다";
+               return str;
+            }
+        }
+        let seoul=new Korea('서울')
+        let busan=new Korea('부산')
+        seoul.areanum="02";
+        seoul.areanum
+    </script>
+    
+</body>
+</html>

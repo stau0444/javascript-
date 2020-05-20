@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step11_ECMA6.html</title>
+</head>
+<body>
+    <h1>ECMA6 script 테스트 중 let과 const 차이</h1>
+    <script>
+        var num1=20; 
+        let num2=20;  // ECMA6에서 바뀐 변수선언
+
+        for(let i=0; i<5; i++){
+            console.log(i)
+        }
+
+        if(true){
+            var myName="김구라";
+        }
+
+        console.log(myName);// var myName은 작동함
+        console.log(myName);// let myName은 작동안함
+
+
+        // let을 이용 하면 사용 범위가 세분화되어 
+        // for 문에서 사용하는 i는 for문에서만 작용한다
+        // var은 함수 기준으로 사용 범위가 적용된다.
+
+         // 상수(수정불가한 변수)도 만들 수 있다
+        const PI=3.14159;
+        PI=100; // 변경안됨
+        // let PI=3.14; 상수로 선언 한 것을 다시 사용 할 수 없다
+        const nums=[10,20,30]
+        nums.push(40); //가능하다 
+        nums=[ ];//불가능하다 다른값을 대입 할 수 없다.
+
+        const yourName="해골";
+
+        const asd={num:'1', name:'kim'}; // asd안의 값은 수정이가능하지만
+        asd={};// 변수 자체는 대입 할 수 없음 ;
+
+        let obj={num:1 ,name:"kim"};
+
+
+        // let은 함수의 실행범위를 정해주고 그 함수는 그 함수가 속학 local에서만 사용가능하다
+        // const는 상수를 나타니고 const를 선언한 변수에는 다른 
+        
+    </script>
+</body>
+</html>

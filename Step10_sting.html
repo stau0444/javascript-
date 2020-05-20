@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>string type 테스트중...</h1>
+    <script>
+        
+        var line = "abcde1234";
+        // String type의 저장소참조
+        var size = line.length;
+        // Stgint type의 기능 사용
+        var result = line.replace("e","EEE");
+        var result2 = line.substring(0,5) 
+        // substring(시작점이상,끝점미만) 시작점에서 끝점까지의 데이터를 가져온다 
+        var result3 =line.split('e')
+        //split('기준점') 기준점을 기준으로 배열을 나눔
+
+        // back tick 문자를 이용해서 문자열을 만들 수도 있다
+        // back tick 문자 형식은 ECMAScript6 에서 추가 됨
+        // 지금 까지 배운 것은 ECMAScript5 버전
+        // 여러줄의 문자열을 편리하게 작성할 수 있다
+        var info= `나의 이름은 황경욱
+            너의 이름은 뭘까
+            하나 
+            둘
+            셋
+        `;
+        var myName="김치";
+        var yourName="황경욱";
+        var info2=`나의 이름:${myName},너의 이름:${yourName}`;
+        // 변수도 ${변수명}으로 사용 할 수 있다.
+        
+    </script>
+</body>
+</html>
+<!-- object는 속성attribute과 기능function(method)으로 이루어져있다
+핸드폰을 예로 
+속성                                
+-제조사 애플
+-type 아이폰6
+-color white
+
+기능
+-사진
+-전화
+-인터넷
+-등등..
+
+쉽게 말하면 객체는 어떤 데이터의 저장소(속성)와 기능(function)으로 이루어져있다
+속성에는 데이터가 들어있고 기능은 호출 -->
