@@ -18,28 +18,38 @@
     <button id="btn2">한번에 나와라</button>
     <p id="asd2"></p>
     <script>
-        
+        //  눌렀을 때  임의의 숫자 나오게하는 버튼 생성
          document.querySelector('#btn2').addEventListener('click',function(){
+            //  div의 innerText를 초기화시킴
             document.querySelector('#addd').innerText="";
-            var arr=[]
-             
+            // 숫자를 집어 넣은 빈 배열을 만들어준다.
+            var arr=[];
+            //  while을 실행하고
              while(true){
+                //  무작위 숫자를 1~45까지의 무작위 숫자를 만들어 배열에 담는다
                 var nums=Math.floor((Math.random()*45)+1)
+                        // 배열에 담긴숫자가 배열의 인덱스에 존재하지않으면 푸쉬하고
                     if(arr.indexOf(nums)===-1){
                         arr.push(nums);
                     }
+                    // 배열의 길이가 6이상이 되면 반복을 멈춘다.
                 if(arr.length==6){ 
                     break;
                     }
              }
+                // 배열이 완성되고 나서 배열을 정렬 해주고
                     arr.sort(function(a, b){return a - b});
-                    
+                    // 배열의 길이만큼 반복문을 작성하고
                     for(var i=0; i<arr.length; i++){
+                        // 이미지 태그를 im변수에 참조시킨다.
                         var im=document.createElement('img');
+                        // im의 scr 속성 값을 배열의 인덱스에 맞춰 바꿔주고
                         im.setAttribute('src','images/lotto-ball-'+arr[i]+'.png')
+                        // div 태그에 img 태그를 추가해준다
                         document.querySelector('#addd').append(im)
                         
                     }
+                    // p태그의 innerText에 배열의 내용이 담기게 한다.
                     document.querySelector('#asd2').innerText+=arr+'\n'
 
          });

@@ -7,22 +7,123 @@
 </head>
 <body>
     <button id="increaseBtn">증가</button>
-    <p id="num1">0</p>
+    <strong id="num1">0</strong>
+    <strong id="num2">0</strong>
+    <strong id="num3">0</strong>
+    <strong id="num4">0</strong>
+    <strong id="num">-</strong>
+    <strong id="num6">0</strong>
+    <strong id="num7">0</strong>
+    <strong id="num8">0</strong>
+    <strong id="num9">0</strong>
 <script>
 
         var i=0;
-        var num=[0,1,2,3,4,5,6]
-        var b=setInterval(function(){
+        var num=[0,1,2,3,4,5,6,7,8,9]
+        // 1
+        var a=setInterval(function(){
             if(i===num.length){i=0;}
-            var a=document.querySelector("#num1")
-            a.innerText=num[i]
+            var b=document.querySelector("#num1")
+            b.innerText=num[i]
             i++
-            stop();
-        },40)
-
-      function stop(){
-          if(i===7){
-              clearInterval(b);
+            stop1();
+        },80)
+        // 2
+        var c=setInterval(function(){
+            if(i===num.length){i=0;}
+            var d=document.querySelector("#num2")
+            d.innerText=num[i]
+            i++
+            stop2();
+        },77)
+        // 3
+        var e=setInterval(function(){
+            if(i===num.length){i=0;}
+            var f=document.querySelector("#num3")
+            f.innerText=num[i]
+            i++
+            stop3();
+        },74)
+        // 4
+        var g=setInterval(function(){
+            if(i===num.length){i=0;}
+            var h=document.querySelector("#num4")
+            h.innerText=num[i]
+            i++
+            stop4();
+        },71)
+        // 5
+        var z=setInterval(function(){
+            if(i===num.length){i=0;}
+            var j=document.querySelector("#num6")
+            j.innerText=num[i]
+            i++
+            stop5();
+        },68)
+        // 6
+        var k=setInterval(function(){
+            if(i===num.length){i=0;}
+            var l=document.querySelector("#num7")
+            l.innerText=num[i]
+            i++
+            stop6();
+        },65)
+        // 7
+        var m=setInterval(function(){
+            if(i===num.length){i=0;}
+            var n=document.querySelector("#num8")
+            n.innerText=num[i]
+            i++
+            stop7();
+        },63)
+        // 8
+        
+        var o=setInterval(function(){
+            if(i===num.length){i=0;}
+            var p=document.querySelector("#num9")
+            p.innerText=num[i]
+            i++
+            stop8();
+        },60)
+       
+      function stop1(){
+          if(i===2){
+              clearInterval(a);
+          }
+      }
+      function stop2(){
+          if(i===6){
+              clearInterval(c);
+          }
+      }
+      function stop3(){
+          if(i===9){
+              clearInterval(e);
+          }
+      }
+      function stop4(){
+          if(i===9){
+              clearInterval(g);
+          }
+      }
+      function stop5(){
+          if(i===10){
+              clearInterval(z);
+          }
+      }
+      function stop6(){
+          if(i===10){
+              clearInterval(k);
+          }
+      }
+      function stop7(){
+          if(i===10){
+              clearInterval(m);
+          }
+      }
+      function stop8(){
+          if(i===10){
+              clearInterval(o);
           }
       }
 
