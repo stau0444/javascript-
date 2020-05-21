@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #toDolist li:hover{
+            background-color:tomato;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>create</h1>
     <input type="text" name="" id="msg" placeholder="할일 입력">
     <button id="addBtn">추가</button>
     <button id="deleteBtn">전부 삭제</button>
+    <button id="deleteLast">하나만 삭제</button>
     <ul id="toDolist">
 
     </ul>
@@ -18,21 +25,30 @@
         // 버튼에 이벤트 리스너를 부여하고
         document.querySelector("#addBtn").addEventListener('click',()=>{
             // li태그의 참조값을 변수에 담는다
-            let li=document.createElement('li');
+            var li=document.createElement('li');
             //input의 value를 변수에담는다
             let mssg=document.querySelector("#msg").value;
-            // li의
+            // li의 innerText에 mssg를 대입한다
             li.innerText=mssg;
             document.querySelector("#toDolist").append(li);
-        })
-        //  전부삭제 버튼
-        document.querySelector("#deleteBtn").addEventListener('click',()=>{
-            let con=confirm('전부 삭제 하시겠습니까?')
+            li.addEventListener('click',function(){
+          
+            let con=confirm(this.innerText+'을(를) 삭제 하시겠습니까?')
             if(con){
-                document.querySelector('#toDolist').innerText=" ";
+                this.remove();
             }
+            });
+        });
+        //  전부삭제 버튼
+        document.querySelector("#deleteBtn").addEventListener('click',function(){
+           
         })
         // 뒤에서 부터하나만 삭제 버튼
+        document.querySelector("#deleteLast").addEventListener('click',function(){
+              var a=document.querySelectorAll('li')
+              a[a.length-1].remove();
+        })
+
     </script>
 </body>
 </html>

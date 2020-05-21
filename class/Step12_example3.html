@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step12_example3.html</title>
+    <style>
+       body{
+            text-align: center;
+            margin: 0 auto px;
+            padding: 0px
+
+       }
+       
+       #list{
+        margin:0 auto;
+        top:200px;
+        left:130px;
+       }
+
+        #list tbody tr:hover {
+            background-color: salmon;
+            cursor: pointer;
+        }
+        #list tbody tr:active {
+            background-color: dodgerblue;
+            cursor: pointer;
+        }
+        .pagination{
+            text-align: center;
+            margin-top: 40px;
+        }
+        .pagination a{
+            color: tomato;
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-left: 15px;
+            text-decoration: none;    
+        }
+        .pagination a:active{
+            color: dodgerblue;
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-left: 15px;
+            text-decoration: none;    
+        }
+
+        .pagination :hover {
+            background-color: thistle;
+        }
+    </style>
+</head>
+<body>
+    <h1>createElement 테스트</h1>
+    <input type="text" name="" id="inputNum" placeholder="번호입력">
+    <input type="text" name="" id="inputName" placeholder="이름입력">
+    <input type="text" name="" id="inputAddr" placeholder="주소입력">
+    <button id="addBtn">추가</button>
+    <h1>추가된 회원 목록입니다</h1>
+    <div>
+        <table style="width: 80%" border="2" id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody >
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">&raquo;</a>
+    </div>
+  
+    <script>
+        // 버튼에 클릭 이벤트 부여
+        document.querySelector('#addBtn').addEventListener('click',function(){
+                // input의 num,name,daar을 참조
+                var num=document.querySelector("#inputNum")
+                var nam=document.querySelector("#inputName")
+                var addr=document.querySelector("#inputAddr")
+                // td를  세개 추가해야 하기 떄문에 각각 변수에 td를 참조 시키고 innerText를 집어넣는다
+                var td1=document.createElement('td');
+                td1.innerText=num.value;
+                var td2=document.createElement('td');
+                td2.innerText=nam.value;
+                var td3=document.createElement('td');
+                td3.innerText=addr.value;
+                
+                // tr태그를 변수에 참조시키고
+                var tr=document.createElement('tr');
+                //  tr에 td를 추가한다.
+                tr.append(td1);
+                tr.append(td2);
+                tr.append(td3);
+                //tbody에 tr을 추가한다.
+            document.querySelector("tbody").append(tr);
+                tr.addEventListener('click',function(){
+                        if(confirm('삭제?')){
+                            this.remove();
+                    };
+        })
+        });
+
+    </script>
+
+</body>
+</html>
