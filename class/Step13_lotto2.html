@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="addd">
+
+    </div>
+    <button id="btn2">한번에 나와라</button>
+    <p id="asd2"></p>
+    <script>
+        
+         document.querySelector('#btn2').addEventListener('click',function(){
+            document.querySelector('#addd').innerText="";
+            var arr=[]
+             
+             while(true){
+                var nums=Math.floor((Math.random()*45)+1)
+                    if(arr.indexOf(nums)===-1){
+                        arr.push(nums);
+                    }
+                if(arr.length==6){ 
+                    break;
+                    }
+             }
+                    arr.sort(function(a, b){return a - b});
+                    
+                    for(var i=0; i<arr.length; i++){
+                        var im=document.createElement('img');
+                        im.setAttribute('src','images/lotto-ball-'+arr[i]+'.png')
+                        document.querySelector('#addd').append(im)
+                        
+                    }
+                    document.querySelector('#asd2').innerText+=arr+'\n'
+
+         });
+    </script>
+</body>
+</html>
