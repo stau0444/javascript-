@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step12_createElement.html</title>
+</head>
+<body>
+    <h1>createElement 테스트중</h1>
+    <button id="makeBtn">p 요소 동적으로 만들기</button>
+    <div id="wrapper"></div>
+    <ol id="makeli"></ol>
+    <script>
+        
+        document.querySelector("#makeBtn").addEventListener('click',()=>{
+            // 버튼에 클릭 이벤트를 넣고 클릭하면 아래의 함수가 실행 되게 한다.    
+            let li=document.createElement('li');
+            // 추가 하길 원하는 요소의 참조값을 변수에 담는다
+            li.innerText="hello"
+            // 참조값의 속성을 바꿔준다
+            document.querySelector("#wrapper").append(li);
+            // 추가 될 태그를 정해주고 append를 사용하여 추가해준다
+        })
+    </script>
+</body>
+</html>

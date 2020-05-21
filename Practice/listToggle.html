@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>createElement 테스트</h1>
+    <ul id="friendList"></ul>
+    <button id="m">친구드라</button>
+    <script>
+        //상수 배열 선언
+       const names=['김구라','해골','원숭이','주뎅이','황경욱','덩어리','라뚱'];
+        // 열렸는지 상태값 지정 누르기 전이기 때문에 false
+        isOpend=false;
+        // 버튼에 이벤트리스너 부여
+        document.querySelector('#m').addEventListener('click',()=>{
+        // 열렸는지 닫혔는지에 대한 조건문 부여
+            if(isOpend==false){
+                // 열렸으면 배열의 길이만큼 반복문을 돌린다
+                for(i=0; i<names.length; i++){
+                var li=document.createElement('li');
+                // li태그의 참조값을 변수에 담는다
+                li.innerText=names[i];
+                // li의 inneText를 배열의 인덱스 순으로 들어가게한다.
+                document.querySelector("#friendList").append(li);
+                // ul태그에 li를 추가한다.
+                isOpend=true;
+                // 열린 상태이기 때문에 상태값을 true 바꿔준다  
+                }
+            }else if(isOpend==true){
+                // 버튼을 한번 누른상태이면 상태값은 true 이기 때문에 버튼을 한번더 누르면 elseif 문으로 들어오게된다
+                document.querySelector("#friendList").innerText=" ";
+                // ul을 선택해 innerText값을 " "로 해준다 닫히는 효과
+                isOpend=false
+                // 닫혀있는 상태이기 때문에 상태값을 false로 한다 .
+            }           
+        })
+           
+        //    forEach 사용코드
+            // document.querySelector('#m').addEventListener('click',()=>{
+            //     names.forEach((item,i)=>{
+            //         var li=document.createElement('li');
+            //         li.innerText=names[i]
+            //         document.querySelector("#friendList").append(li);
+            //     })
+            // })
+
+
+      
+    </script>
+</body>
+</html>

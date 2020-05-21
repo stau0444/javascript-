@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table >
+        <thead id="thead">
+            <tr>
+                <th>황경욱</th>
+                <th>김구라</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td>강남역</td>
+                <td>노량진</td>
+            </tr>
+        </tbody>
+    </table>
+     <script>
+        //  td의 참조값을 
+         let td1=document.createElement('td');
+         td1.innerText="김치"
+         let td2=document.createElement('td');
+         td2.innerText="전라도"
+         let tr=document.createElement('tr');
+         tr.append(td1);
+         tr.append(td2);
+         document.querySelector("tbody").append(tr);
+         let td3=document.createElement('td');
+         let td4=document.createElement('td');
+         document.querySelector("thead").append(tr);
+         document.querySelector("thead").append(tr);
+     </script>    
+</body>
+</html>

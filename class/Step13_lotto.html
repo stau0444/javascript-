@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn2">한번에 나와라</button>
+    <button id="btn">나와라</button>
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    
+    <p id="asd"></p>
+    <p id="asd2"></p>
+    <script>
+        var nums=[];
+        
+            document.querySelector('#btn').addEventListener('click',function(){
+            if(nums.length<6){
+                let a=Math.floor((Math.random()*45)+1)
+                if(nums.indexOf(a)==-1){
+                    nums.push(document.querySelector("#asd").innerText+=a+"--")
+                }
+                document.querySelector('img').setAttribute('src','images/lotto-ball-'+a+'.png' )
+            }else if(nums.length>6){
+                nums=[];
+            }
+
+        });
+        var nums2=[];
+        document.querySelector('#btn2').addEventListener('click',function(){
+           i=0;
+           while(true){
+                    var b= Math.floor((Math.random()*45)+1);
+                    document.querySelectorAll('img')[i].setAttribute('src','images/lotto-ball-'+b+'.png' )
+                    if(nums.indexOf(a)==-1){
+                    nums2.push(document.querySelector("#asd2").innerText+=b);
+                    i++
+                    }
+                    if(nums2.length>6){
+                        break;
+                    }
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
