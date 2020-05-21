@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_example.html</title>
+</head>
+<body>
+        <h1>반복문 테스트</h1>
+        <input type="text" id="inputName" placeholder="검색할 이름 입력"/>
+        <button id="findBtn">검색</button>
+        <p id="console"></p>
+        <script>
+            var friends=[];
+            
+            friends.push({name:"김구라",phone:"010", email:"aaa@"});
+            friends.push({name:"황경욱",phone:"010", email:"aaa@"});
+            friends.push({name:"김진호",phone:"011", email:"bbb@"});
+            friends.push({name:"이봉하",phone:"017", email:"ccc@"});
+            friends.push({name:"이세희",phone:"016", email:"ddd@"});
+            friends.push({name:"김대중",phone:"018", email:"eee@"});
+
+            document.querySelector("#findBtn").addEventListener('click',function(){
+              //입력값 가져오기
+              var val=document.querySelector("#inputName").value
+              //초기값 정하기
+              var isExist=false;
+              //배열에담김 오브젝트를 json을 사용해 스트링으로 바꾸고 
+              // 스트링으로 바뀐 것에서 입력값을 포함했는지 여부를 가리고 
+              //  포함했다면 console의 innerText에 첫글자와 맨마지막글자를 빼고 한줄 바뀜 한 것을
+              // 집어 넣는다  
+
+              for(i=0; i<friends.length; i++){
+                  var result=JSON.stringify(friends[i])
+                    if(result.includes(val)){
+                        document.querySelector("#console").innerText+=result.slice(1,result.length-1) +"\n";
+                        isExist=true;
+                     }
+               }
+            //  초기 값은 true가 되고  밑에 조건절에서
+              //    조건은 false가 되기때문에  밑에 조건절은 무시된다.      
+               if(isExist==false){
+                document.querySelector("#console").innerText="검색된 결과가 없습니다"
+               }
+            });
+
+
+        </script>
+</body>
+</html>
